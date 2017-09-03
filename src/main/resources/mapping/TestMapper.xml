@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.project.mapper.TestMapper" >
+  <resultMap id="BaseResultMap" type="com.project.model.Test" >
+    <result column="name" property="name" jdbcType="CHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.project.model.Test" >
+    insert into test (name)
+    values (#{name,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.project.model.Test" >
+    insert into test
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getTest" resultType="com.project.model.Test">
+    SELECT NAME FROM test
+  </select>
+</mapper>

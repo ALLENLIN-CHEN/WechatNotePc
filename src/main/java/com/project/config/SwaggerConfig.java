@@ -26,9 +26,20 @@ public class SwaggerConfig
 
 
     public SwaggerSpringMvcPlugin customImplementation(){
-        return  new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
-                .apiInfo(new ApiInfo("api", "desc", null, null, null, null))
-                .useDefaultResponseMessages(false)
-                .includePatterns("/users.*");
+        return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
+                .apiInfo(apiInfo())
+                .includePatterns(".*?");
+    }
+
+    private ApiInfo apiInfo()
+    {
+        ApiInfo apiInfo = new ApiInfo(
+                "My Apps API Title",
+                "My Apps API Description",
+                "My Apps API terms of service",
+                "My Apps API Contact Email",
+                "My Apps API Licence Type",
+                "My Apps API License URL");
+        return apiInfo;
     }
 }
