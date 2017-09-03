@@ -1,4 +1,4 @@
-package cn.no7player.model;
+package com.project.model;
 
 /**
  * Created by zl on 2015/8/27.

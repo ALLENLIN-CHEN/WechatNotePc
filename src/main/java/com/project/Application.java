@@ -1,4 +1,4 @@
-package cn.no7player;
+package com.project;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @EnableAutoConfiguration
 @SpringBootApplication
 @ComponentScan
-@MapperScan("cn.no7player.mapper")
+@MapperScan("com.project.mapper")
 public class Application {
     private static Logger logger = Logger.getLogger(Application.class);
 
@@ -37,7 +37,7 @@ public class Application {
 
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mapping/*.xml"));
 
         return sqlSessionFactoryBean.getObject();
     }

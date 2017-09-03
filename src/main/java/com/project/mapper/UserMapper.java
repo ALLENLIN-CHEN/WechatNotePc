@@ -1,6 +1,6 @@
-package cn.no7player.mapper;
+package com.project.mapper;
 
-import cn.no7player.model.User;
+import com.project.model.User;
 
 /**
  * Created by zl on 2015/8/27.
